@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PasswordGate from '../components/PasswordGate.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
+import Impressum from '../components/Impressum.astro';
+---
+
+<Layout title="Marvin Espeter - IT Professional Portfolio">
+  <!-- Password Gate -->
+  <PasswordGate />
+
+  <!-- Theme Toggle -->
+  <ThemeToggle />
+
+  <!-- Language Toggle -->
+  <LanguageToggle />
+
+  <!-- Main Content -->
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Contact />
+  </main>
+
+  <!-- Impressum Modal -->
+  <Impressum />
+</Layout>

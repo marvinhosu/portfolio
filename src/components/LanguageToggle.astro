@@ -1,0 +1,83 @@
+---
+// Language toggle component - switches between English and German
+---
+
+<button
+  id="language-toggle"
+  class="fixed top-6 right-24 z-[60] p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all border border-gray-200 dark:border-gray-700 flex items-center justify-center"
+  aria-label="Toggle language"
+>
+  <span id="current-lang" class="w-5 h-5 flex items-center justify-center text-xs font-semibold text-gray-800 dark:text-gray-200"></span>
+</button>
+
+<script is:inline>
+  // Language toggle functionality - runs immediately, no page reload
+  (function() {
+    const languageToggleBtn = document.getElementById('language-toggle');
+    const currentLangSpan = document.getElementById('current-lang');
+
+    function updateLanguage(lang) {
+      console.log('Switching to language:', lang);
+
+      // Remove existing language style if it exists
+      const existingStyle = document.getElementById('lang-style');
+      if (existingStyle) {
+        existingStyle.remove();
+      }
+
+      // Inject new style to hide the opposite language
+      const style = document.createElement('style');
+      style.id = 'lang-style';
+      style.innerHTML = lang === 'en'
+        ? '[data-lang="de"] { display: none !important; }'
+        : '[data-lang="en"] { display: none !important; }';
+      document.head.appendChild(style);
+
+      // Update button text
+      if (currentLangSpan) {
+        currentLangSpan.textContent = lang.toUpperCase();
+      }
+
+      console.log(`Switched to ${lang}`);
+    }
+
+    // Check for saved language preference or default to English
+    let currentLang = localStorage.getItem('language');
+    console.log('Saved language:', currentLang);
+
+    if (!currentLang || (currentLang !== 'en' && currentLang !== 'de')) {
+      currentLang = 'en';
+      console.log('No saved language, using default:', currentLang);
+    }
+
+    // Set initial language
+    updateLanguage(currentLang);
+
+    // Toggle language on button click
+    if (languageToggleBtn) {
+      languageToggleBtn.addEventListener('click', function() {
+        console.log('Language toggle clicked!');
+        const newLang = currentLang === 'en' ? 'de' : 'en';
+        console.log('Switching from', currentLang, 'to', newLang);
+
+        localStorage.setItem('language', newLang);
+        currentLang = newLang;
+        updateLanguage(newLang);
+      });
+    }
+  })();
+</script>
+
+<style>
+  #language-toggle {
+    transition: transform 0.2s ease;
+  }
+
+  #language-toggle:hover {
+    transform: scale(1.05);
+  }
+
+  #language-toggle:active {
+    transform: scale(0.95);
+  }
+</style>

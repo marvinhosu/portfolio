@@ -1,0 +1,258 @@
+---
+// Impressum modal - Legal information for Germany/EU
+import { translations } from '../i18n/translations';
+
+const en = translations.en;
+const de = translations.de;
+---
+
+<div
+  id="impressum-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm"
+>
+  <div class="mx-4 max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+    <!-- Modal Header - English -->
+    <div class="bg-gray-900 dark:bg-gray-950 px-6 py-4 flex items-center justify-between" data-lang="en">
+      <h2 class="text-2xl font-bold text-white">{en.impressum.title}</h2>
+      <button
+        id="close-impressum"
+        class="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
+        aria-label="Close impressum"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal Header - German -->
+    <div class="bg-gray-900 dark:bg-gray-950 px-6 py-4 flex items-center justify-between" data-lang="de">
+      <h2 class="text-2xl font-bold text-white">{de.impressum.title}</h2>
+      <button
+        id="close-impressum-de"
+        class="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
+        aria-label="Impressum schließen"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal Content - English -->
+    <div class="px-6 py-8 max-h-[70vh] overflow-y-auto" data-lang="en">
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <!-- Personal Information -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{en.impressum.information}</h3>
+          <p class="font-medium text-gray-900 dark:text-gray-100">Marvin Espeter</p>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2">
+            [Your Street Address]<br />
+            [Your Postal Code and City]<br />
+            Germany
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{en.impressum.contactTitle}</h3>
+          <p>
+            <span class="font-medium">E-Mail:</span>
+            <a href="mailto:your.email@example.com" class="text-blue-600 dark:text-blue-400 hover:underline ml-1">
+              your.email@example.com
+            </a>
+          </p>
+        </div>
+
+        <!-- Disclaimer -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{en.impressum.disclaimerTitle}</h3>
+
+          <h4 class="font-medium text-gray-900 dark:text-gray-100 mt-4 mb-1">{en.impressum.contentLiability.title}</h4>
+          <p class="text-sm leading-relaxed">
+            {en.impressum.contentLiability.text}
+          </p>
+
+          <h4 class="font-medium text-gray-900 dark:text-gray-100 mt-4 mb-1">{en.impressum.linkLiability.title}</h4>
+          <p class="text-sm leading-relaxed">
+            {en.impressum.linkLiability.text}
+          </p>
+
+          <h4 class="font-medium text-gray-900 dark:text-gray-100 mt-4 mb-1">{en.impressum.copyright.title}</h4>
+          <p class="text-sm leading-relaxed">
+            {en.impressum.copyright.text}
+          </p>
+        </div>
+
+        <!-- Data Protection -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{en.impressum.dataProtection.title}</h3>
+          <p class="text-sm leading-relaxed mb-3">
+            {en.impressum.dataProtection.text1}
+          </p>
+          <p class="text-sm leading-relaxed">
+            {en.impressum.dataProtection.text2}
+          </p>
+        </div>
+
+        <!-- Note -->
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 border-l-4 border-gray-900 dark:border-gray-100">
+          <p class="text-sm italic text-gray-700 dark:text-gray-300">
+            {en.impressum.note}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Content - German -->
+    <div class="px-6 py-8 max-h-[70vh] overflow-y-auto" data-lang="de">
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <!-- Personal Information -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{de.impressum.information}</h3>
+          <p class="font-medium text-gray-900 dark:text-gray-100">Marvin Espeter</p>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2">
+            [Your Street Address]<br />
+            [Your Postal Code and City]<br />
+            Germany
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{de.impressum.contactTitle}</h3>
+          <p>
+            <span class="font-medium">E-Mail:</span>
+            <a href="mailto:your.email@example.com" class="text-blue-600 dark:text-blue-400 hover:underline ml-1">
+              your.email@example.com
+            </a>
+          </p>
+        </div>
+
+        <!-- Disclaimer -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{de.impressum.disclaimerTitle}</h3>
+
+          <h4 class="font-medium text-gray-900 dark:text-gray-100 mt-4 mb-1">{de.impressum.contentLiability.title}</h4>
+          <p class="text-sm leading-relaxed">
+            {de.impressum.contentLiability.text}
+          </p>
+
+          <h4 class="font-medium text-gray-900 dark:text-gray-100 mt-4 mb-1">{de.impressum.linkLiability.title}</h4>
+          <p class="text-sm leading-relaxed">
+            {de.impressum.linkLiability.text}
+          </p>
+
+          <h4 class="font-medium text-gray-900 dark:text-gray-100 mt-4 mb-1">{de.impressum.copyright.title}</h4>
+          <p class="text-sm leading-relaxed">
+            {de.impressum.copyright.text}
+          </p>
+        </div>
+
+        <!-- Data Protection -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{de.impressum.dataProtection.title}</h3>
+          <p class="text-sm leading-relaxed mb-3">
+            {de.impressum.dataProtection.text1}
+          </p>
+          <p class="text-sm leading-relaxed">
+            {de.impressum.dataProtection.text2}
+          </p>
+        </div>
+
+        <!-- Note -->
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 border-l-4 border-gray-900 dark:border-gray-100">
+          <p class="text-sm italic text-gray-700 dark:text-gray-300">
+            {de.impressum.note}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer - English -->
+    <div class="bg-gray-50 dark:bg-gray-900 px-6 py-4 flex justify-end" data-lang="en">
+      <button
+        id="close-impressum-btn"
+        class="px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+      >
+        {en.impressum.closeButton}
+      </button>
+    </div>
+
+    <!-- Modal Footer - German -->
+    <div class="bg-gray-50 dark:bg-gray-900 px-6 py-4 flex justify-end" data-lang="de">
+      <button
+        id="close-impressum-btn-de"
+        class="px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+      >
+        {de.impressum.closeButton}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Impressum Link in Footer -->
+<footer class="py-8 px-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+    <p data-lang="en" class="text-gray-600 dark:text-gray-400 text-sm">
+      {en.footer.copyright}
+    </p>
+    <p data-lang="de" class="text-gray-600 dark:text-gray-400 text-sm">
+      {de.footer.copyright}
+    </p>
+    <button
+      id="open-impressum"
+      data-lang="en"
+      class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm underline"
+    >
+      {en.footer.impressumButton}
+    </button>
+    <button
+      id="open-impressum-de"
+      data-lang="de"
+      class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm underline"
+    >
+      {de.footer.impressumButton}
+    </button>
+  </div>
+</footer>
+
+<script>
+  // Open impressum modal
+  const openBtn = document.getElementById('open-impressum');
+  const openBtnDe = document.getElementById('open-impressum-de');
+  const modal = document.getElementById('impressum-modal');
+  const closeBtn = document.getElementById('close-impressum');
+  const closeFooterBtn = document.getElementById('close-impressum-btn');
+
+  function openModal() {
+    modal?.classList.remove('hidden');
+    modal?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal?.classList.add('hidden');
+    modal?.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  openBtn?.addEventListener('click', openModal);
+  openBtnDe?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  closeFooterBtn?.addEventListener('click', closeModal);
+
+  // Close on outside click
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

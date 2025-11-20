@@ -1,0 +1,191 @@
+---
+// Experience & Education section
+import { translations } from '../i18n/translations';
+
+const en = translations.en;
+const de = translations.de;
+---
+
+<section id="experience" class="py-20 px-4 bg-white dark:bg-gray-800">
+  <div class="max-w-4xl mx-auto">
+    <!-- English Version -->
+    <h2 class="text-4xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100" data-lang="en">{en.experience.title}</h2>
+    <!-- German Version -->
+    <h2 class="text-4xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100" data-lang="de">{de.experience.title}</h2>
+
+    <div class="space-y-12">
+      <!-- Professional Experience -->
+      <div>
+        <!-- English Version -->
+        <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100 flex items-center gap-2" data-lang="en">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          {en.experience.professionalTitle}
+        </h3>
+        <!-- German Version -->
+        <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100 flex items-center gap-2" data-lang="de">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          {de.experience.professionalTitle}
+        </h3>
+
+        <div class="space-y-6">
+          <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+            <div class="absolute w-4 h-4 bg-gray-900 dark:bg-gray-100 rounded-full -left-[9px] top-1"></div>
+            <!-- English Version -->
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6" data-lang="en">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{en.experience.workExperience.title}</h4>
+                  <p class="text-gray-600 dark:text-gray-400">{en.experience.workExperience.company}</p>
+                </div>
+                <span class="text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">{en.experience.workExperience.period}</span>
+              </div>
+              <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                {en.experience.workExperience.responsibilities.map((responsibility) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-gray-400 dark:text-gray-500">•</span>
+                    <span>{responsibility}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <!-- German Version -->
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6" data-lang="de">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{de.experience.workExperience.title}</h4>
+                  <p class="text-gray-600 dark:text-gray-400">{de.experience.workExperience.company}</p>
+                </div>
+                <span class="text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">{de.experience.workExperience.period}</span>
+              </div>
+              <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                {de.experience.workExperience.responsibilities.map((responsibility) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-gray-400 dark:text-gray-500">•</span>
+                    <span>{responsibility}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Development -->
+      <div>
+        <!-- English Version -->
+        <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100 flex items-center gap-2" data-lang="en">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          {en.experience.certificationsTitle}
+        </h3>
+        <!-- German Version -->
+        <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100 flex items-center gap-2" data-lang="de">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          {de.experience.certificationsTitle}
+        </h3>
+
+        <div class="space-y-4">
+          <!-- PSM I -->
+          <div class="bg-gradient-to-r from-blue-50 to-white dark:from-blue-900/30 dark:to-gray-700 rounded-xl p-6 border border-blue-100 dark:border-blue-700">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-blue-500 dark:bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+              <!-- English Version -->
+              <div class="flex-1" data-lang="en">
+                <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">{en.experience.certificationsList.psm.title}</h4>
+                <p class="text-sm text-blue-600 dark:text-blue-400 mb-2">{en.experience.certificationsList.psm.issuer}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">{en.experience.certificationsList.psm.description}</p>
+              </div>
+              <!-- German Version -->
+              <div class="flex-1" data-lang="de">
+                <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">{de.experience.certificationsList.psm.title}</h4>
+                <p class="text-sm text-blue-600 dark:text-blue-400 mb-2">{de.experience.certificationsList.psm.issuer}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">{de.experience.certificationsList.psm.description}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PSPO I -->
+          <div class="bg-gradient-to-r from-green-50 to-white dark:from-green-900/30 dark:to-gray-700 rounded-xl p-6 border border-green-100 dark:border-green-700">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-green-500 dark:bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+              <!-- English Version -->
+              <div class="flex-1" data-lang="en">
+                <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">{en.experience.certificationsList.pspo.title}</h4>
+                <p class="text-sm text-green-600 dark:text-green-400 mb-2">{en.experience.certificationsList.pspo.issuer}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">{en.experience.certificationsList.pspo.description}</p>
+              </div>
+              <!-- German Version -->
+              <div class="flex-1" data-lang="de">
+                <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">{de.experience.certificationsList.pspo.title}</h4>
+                <p class="text-sm text-green-600 dark:text-green-400 mb-2">{de.experience.certificationsList.pspo.issuer}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">{de.experience.certificationsList.pspo.description}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- React Course -->
+          <div class="bg-gradient-to-r from-gray-50 to-white dark:from-gray-900/30 dark:to-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gray-600 dark:bg-gray-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <!-- English Version -->
+              <div class="flex-1" data-lang="en">
+                <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">{en.experience.certificationsList.react.title}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{en.experience.certificationsList.react.issuer}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">{en.experience.certificationsList.react.description}</p>
+              </div>
+              <!-- German Version -->
+              <div class="flex-1" data-lang="de">
+                <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">{de.experience.certificationsList.react.title}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{de.experience.certificationsList.react.issuer}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">{de.experience.certificationsList.react.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continuous Learning -->
+      <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+        <!-- English Version -->
+        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100 flex items-center gap-2" data-lang="en">
+          <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          {en.experience.continuousLearningTitle}
+        </h3>
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-lang="en">
+          {en.experience.continuousLearningText}
+        </p>
+        <!-- German Version -->
+        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100 flex items-center gap-2" data-lang="de">
+          <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          {de.experience.continuousLearningTitle}
+        </h3>
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-lang="de">
+          {de.experience.continuousLearningText}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
