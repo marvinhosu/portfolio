@@ -39,14 +39,7 @@
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
 
-    console.log('Theme toggle script loaded');
-    console.log('Button:', themeToggleBtn);
-    console.log('Light icon:', lightIcon);
-    console.log('Dark icon:', darkIcon);
-
     function updateTheme(theme) {
-      console.log('Updating theme to:', theme);
-
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
         if (lightIcon && darkIcon) {
@@ -54,7 +47,6 @@
           lightIcon.style.display = 'block';
           darkIcon.classList.add('hidden');
           darkIcon.style.display = 'none';
-          console.log('Dark mode: showing sun, hiding moon');
         }
       } else {
         document.documentElement.classList.remove('dark');
@@ -63,20 +55,17 @@
           lightIcon.style.display = 'none';
           darkIcon.classList.remove('hidden');
           darkIcon.style.display = 'block';
-          console.log('Light mode: showing moon, hiding sun');
         }
       }
     }
 
     // Check for saved theme preference or use system preference
     let currentTheme = localStorage.getItem('theme');
-    console.log('Saved theme:', currentTheme);
 
     if (!currentTheme) {
       // No saved preference, check system preference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       currentTheme = prefersDark ? 'dark' : 'light';
-      console.log('System prefers dark:', prefersDark, '- using theme:', currentTheme);
     }
 
     // Set initial theme
@@ -85,10 +74,8 @@
     // Toggle theme on button click
     if (themeToggleBtn) {
       themeToggleBtn.addEventListener('click', function() {
-        console.log('Toggle clicked!');
         const isDark = document.documentElement.classList.contains('dark');
         const newTheme = isDark ? 'light' : 'dark';
-        console.log('Was dark:', isDark, '- switching to:', newTheme);
 
         localStorage.setItem('theme', newTheme);
         updateTheme(newTheme);

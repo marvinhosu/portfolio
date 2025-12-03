@@ -7,7 +7,13 @@
       "Bash(cat:*)",
       "Bash(find:*)",
       "Bash(curl:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(rm:*)",
+      "WebSearch",
+      "WebFetch(domain:developer.1password.com)",
+      "Bash(test:*)",
+      "Bash(sha256sum:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

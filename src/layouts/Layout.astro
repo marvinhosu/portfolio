@@ -12,6 +12,10 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Marvin Espeter - IT Professional Portfolio" />
     <meta name="viewport" content="width=device-width" />
+
+    <!-- Prevent search engine indexing - Remove these meta tags when ready to go public -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -20,6 +24,11 @@ const { title } = Astro.props;
     <script is:inline>
       (function() {
         const currentLang = localStorage.getItem('language') || 'en';
+
+        // Set the HTML lang attribute immediately
+        document.documentElement.setAttribute('lang', currentLang);
+
+        // Hide the opposite language content
         const style = document.createElement('style');
         style.id = 'lang-style';
         style.innerHTML = currentLang === 'en'

@@ -17,8 +17,6 @@
     const currentLangSpan = document.getElementById('current-lang');
 
     function updateLanguage(lang) {
-      console.log('Switching to language:', lang);
-
       // Remove existing language style if it exists
       const existingStyle = document.getElementById('lang-style');
       if (existingStyle) {
@@ -38,16 +36,15 @@
         currentLangSpan.textContent = lang.toUpperCase();
       }
 
-      console.log(`Switched to ${lang}`);
+      // Update HTML lang attribute for accessibility
+      document.documentElement.setAttribute('lang', lang);
     }
 
     // Check for saved language preference or default to English
     let currentLang = localStorage.getItem('language');
-    console.log('Saved language:', currentLang);
 
     if (!currentLang || (currentLang !== 'en' && currentLang !== 'de')) {
       currentLang = 'en';
-      console.log('No saved language, using default:', currentLang);
     }
 
     // Set initial language
@@ -56,9 +53,7 @@
     // Toggle language on button click
     if (languageToggleBtn) {
       languageToggleBtn.addEventListener('click', function() {
-        console.log('Language toggle clicked!');
         const newLang = currentLang === 'en' ? 'de' : 'en';
-        console.log('Switching from', currentLang, 'to', newLang);
 
         localStorage.setItem('language', newLang);
         currentLang = newLang;

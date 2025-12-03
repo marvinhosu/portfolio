@@ -4,8 +4,10 @@ A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwin
 
 ## Features
 
-- **Password Protected** - Simple client-side password gate to control access
-- **Modern Tech Stack** - Built with Astro, TypeScript, and Tailwind CSS
+- **Password Protected** - Secure environment-based password management
+- **Bilingual Support** - Instant EN/DE language switching without page reload
+- **Dark Mode** - Light/Dark theme toggle with localStorage persistence
+- **Modern Tech Stack** - Built with Astro, TypeScript, and Tailwind CSS v3
 - **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - **Fast Performance** - Static site generation for optimal loading speed
 - **Minimalist Design** - Clean, professional aesthetic
@@ -81,19 +83,31 @@ portfolio/
 
 ## Configuration
 
-### Changing the Password
+### Password Management
 
-The default password is `password`. To change it:
+The portfolio uses environment variables for secure password management:
 
-1. Open `src/components/PasswordGate.astro`
-2. Generate a new SHA-256 hash of your desired password:
+**Local Development:**
+1. Copy the example file:
    ```bash
-   echo -n "your-new-password" | sha256sum
+   cp .env.example .env
    ```
-3. Replace the `PASSWORD_HASH` constant with your new hash:
-   ```typescript
-   const PASSWORD_HASH = "your-new-hash-here";
+2. Generate your password hash:
+   ```bash
+   echo -n "your-password" | sha256sum
    ```
+3. Update `.env` with your hash:
+   ```env
+   PUBLIC_PASSWORD_HASH=your-generated-hash-here
+   ```
+
+**Production Deployment:**
+Set `PUBLIC_PASSWORD_HASH` in your deployment platform's environment variables:
+- **Vercel**: Settings → Environment Variables
+- **Netlify**: Site Settings → Environment Variables
+- **Cloudflare Pages**: Settings → Environment Variables
+
+⚠️ **Important**: Never commit `.env` to git (already in `.gitignore`)
 
 ### Customizing Content
 
@@ -212,11 +226,28 @@ The password protection is **client-side only** and provides basic privacy. For 
 - Cloudflare Access
 - Basic HTTP authentication via hosting provider
 
+## Advanced: 1Password Secrets Management
+
+For multiple projects or team collaboration, consider using 1Password CLI for automated secret injection:
+
+```bash
+# Install 1Password CLI
+brew install 1password-cli
+
+# Store secrets in 1Password and use references
+# .env.template:
+PUBLIC_PASSWORD_HASH=op://portfolio/password/hash
+
+# Run with automatic secret injection
+op run --env-file=.env.template -- npm run dev
+```
+
+This eliminates plaintext secrets entirely. See [1Password Developer Docs](https://developer.1password.com/docs/cli/) for details.
+
 ## Future Enhancements
 
 Potential improvements you might want to add:
 - [ ] Blog section for technical articles
-- [ ] Dark mode toggle
 - [ ] Animations and transitions
 - [ ] Project filtering by technology
 - [ ] Contact form with email integration
