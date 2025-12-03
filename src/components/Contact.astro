@@ -1,6 +1,7 @@
 ---
 // Contact section - Get in touch
 import { translations } from '../i18n/translations';
+import { personalData } from '../config/personal-data';
 
 const en = translations.en;
 const de = translations.de;
@@ -20,7 +21,7 @@ const de = translations.de;
     <div class="grid md:grid-cols-2 gap-8 mb-12">
       <!-- Email -->
       <a
-        href="mailto:marvin.espeter@example.com"
+        href={`mailto:${personalData.contact.email}`}
         class="group bg-white dark:bg-gray-700 rounded-xl p-8 hover:shadow-lg transition-all border border-gray-100 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-400"
       >
         <div class="w-12 h-12 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -36,7 +37,7 @@ const de = translations.de;
           <span data-lang="en">{en.contact.email.description}</span>
           <span data-lang="de">{de.contact.email.description}</span>
         </p>
-        <p class="text-gray-900 dark:text-gray-100 font-medium">marvin.espeter@example.com</p>
+        <p class="text-gray-900 dark:text-gray-100 font-medium">{personalData.contact.email}</p>
         <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
           <span data-lang="en">{en.contact.email.action}</span>
           <span data-lang="de">{de.contact.email.action}</span>
@@ -45,7 +46,7 @@ const de = translations.de;
 
       <!-- LinkedIn -->
       <a
-        href="https://linkedin.com/in/marvin-espeter"
+        href={personalData.contact.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="group bg-white dark:bg-gray-700 rounded-xl p-8 hover:shadow-lg transition-all border border-gray-100 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-500"
@@ -63,7 +64,7 @@ const de = translations.de;
           <span data-lang="en">{en.contact.linkedin.description}</span>
           <span data-lang="de">{de.contact.linkedin.description}</span>
         </p>
-        <p class="text-blue-600 dark:text-blue-400 font-medium">linkedin.com/in/marvin-espeter</p>
+        <p class="text-blue-600 dark:text-blue-400 font-medium">{personalData.contact.linkedin.replace('https://', '')}</p>
         <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
           <span data-lang="en">{en.contact.linkedin.action}</span>
           <span data-lang="de">{de.contact.linkedin.action}</span>
@@ -72,7 +73,7 @@ const de = translations.de;
 
       <!-- GitHub -->
       <a
-        href="https://github.com/marvinespeter"
+        href={personalData.contact.github}
         target="_blank"
         rel="noopener noreferrer"
         class="group bg-white dark:bg-gray-700 rounded-xl p-8 hover:shadow-lg transition-all border border-gray-100 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-100 cursor-not-allowed opacity-75"
