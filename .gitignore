@@ -29,3 +29,6 @@ pnpm-debug.log*
 SESSION_SUMMARY.md
 DEPLOYMENT_GUIDE.md
 GITHUB_SETUP.md
+
+# Personal data configuration (NEVER commit this!)
+src/config/personal-data.ts
