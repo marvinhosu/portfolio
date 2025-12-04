@@ -4,7 +4,8 @@ A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwin
 
 ## Features
 
-- **Password Protected** - Secure environment-based password management
+- **Password Protected** - Secure environment-based password management with SHA-256 hashing
+- **Brute Force Protection** - Rate limiting (5 attempts, 15-minute lockout)
 - **Bilingual Support** - Instant EN/DE language switching without page reload
 - **Dark Mode** - Light/Dark theme toggle with localStorage persistence
 - **Modern Tech Stack** - Built with Astro, TypeScript, and Tailwind CSS v3
@@ -14,6 +15,7 @@ A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwin
 - **Single Page Layout** - Smooth scrolling between sections
 - **Legal Compliance** - Impressum modal for German/EU legal requirements
 - **SEO Friendly** - Optimized meta tags and semantic HTML
+- **Privacy First** - Personal data protected via gitignored config files
 
 ## Tech Stack
 
@@ -78,6 +80,7 @@ portfolio/
 | `npm install`          | Install dependencies                             |
 | `npm run dev`          | Start local dev server at `localhost:4321`       |
 | `npm run build`        | Build production site to `./dist/`               |
+| `./build.sh`           | Build with environment variables properly loaded |
 | `npm run preview`      | Preview build locally before deploying           |
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 
@@ -111,28 +114,38 @@ Set `PUBLIC_PASSWORD_HASH` in your deployment platform's environment variables:
 
 ### Customizing Content
 
-#### Personal Information
-- Edit `src/components/Hero.astro` for name and tagline
-- Edit `src/components/About.astro` for bio and personal story
+#### Personal Data (Contact & Impressum)
+The portfolio uses a secure configuration system to keep your personal information out of Git:
 
-#### Projects
-- Update the `projects` array in `src/components/Projects.astro`
-- Add your own project details, technologies, and highlights
+1. **Create your personal data file:**
+   ```bash
+   cp src/config/personal-data.example.ts src/config/personal-data.ts
+   ```
 
-#### Contact Information
-- Edit `src/components/Contact.astro` to add your:
-  - Email address
-  - LinkedIn profile
-  - GitHub username
+2. **Edit `src/config/personal-data.ts`** with your actual information:
+   ```typescript
+   export const personalData = {
+     contact: {
+       email: 'your.email@example.com',
+       linkedin: 'https://linkedin.com/in/yourprofile',
+       github: 'https://github.com/yourusername',
+     },
+     impressum: {
+       street: 'Your Street 123',
+       city: '12345 Your City',
+       country: 'Your Country',
+     },
+   };
+   ```
 
-#### Impressum (Legal Information)
-- Edit `src/components/Impressum.astro`
-- Replace placeholder text with your actual contact details
-- Consult with a lawyer for complete legal compliance if needed
+3. **That's it!** This file is gitignored and will never be committed to GitHub.
 
-#### Skills & Technologies
-- Edit the `skillCategories` array in `src/components/Skills.astro`
-- Add or remove skills as your expertise grows
+#### Other Content
+
+- **Hero Section**: Edit `src/components/Hero.astro` for name and tagline
+- **About Section**: Edit `src/components/About.astro` for bio and personal story
+- **Projects**: Update the `projects` array in `src/components/Projects.astro`
+- **Skills**: Edit the `skillCategories` array in `src/components/Skills.astro`
 
 ## Deployment
 
@@ -197,13 +210,33 @@ Alternatively, connect your GitHub repository to Vercel for automatic deployment
 
 Or connect your GitHub repository to Netlify for automatic deployments.
 
-## Adding GitHub Link
+### Deploy to Shared Hosting (FTP/SFTP)
 
-Once you've added your portfolio to GitHub:
+For traditional shared hosting (like Hetzner, HostGator, etc.):
 
-1. Update `src/components/Contact.astro`
-2. Replace `https://github.com/yourusername` with your actual GitHub profile
-3. Update the link status from "coming soon" to active
+1. **Build your site:**
+   ```bash
+   ./build.sh
+   ```
+
+2. **Connect via FTP/SFTP:**
+   - Use an FTP client like FileZilla
+   - Host: Your hosting provider's FTP address
+   - Port: 21 (FTP) or 22 (SFTP)
+   - Username/Password: From your hosting provider
+
+3. **Upload the `dist/` folder contents:**
+   - Navigate to your public_html or web root directory
+   - Upload all files from the `dist/` folder (not the folder itself)
+
+4. **Enable HTTPS/SSL:**
+   - Log into your hosting control panel
+   - Enable Let's Encrypt SSL certificate (usually free and automatic)
+   - This is **required** for the password system to work (Web Crypto API needs HTTPS)
+
+5. **Test your site:**
+   - Visit `https://yourdomain.com` (note the "s" in https)
+   - Test password login and all features
 
 ## Browser Support
 
