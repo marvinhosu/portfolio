@@ -223,8 +223,12 @@ const de = translations.de;
   const openBtn = document.getElementById('open-impressum');
   const openBtnDe = document.getElementById('open-impressum-de');
   const modal = document.getElementById('impressum-modal');
-  const closeBtn = document.getElementById('close-impressum');
-  const closeFooterBtn = document.getElementById('close-impressum-btn');
+
+  // Close buttons (both English and German)
+  const closeBtnEn = document.getElementById('close-impressum');
+  const closeBtnDe = document.getElementById('close-impressum-de');
+  const closeFooterBtnEn = document.getElementById('close-impressum-btn');
+  const closeFooterBtnDe = document.getElementById('close-impressum-btn-de');
 
   function openModal() {
     modal?.classList.remove('hidden');
@@ -238,10 +242,15 @@ const de = translations.de;
     document.body.style.overflow = '';
   }
 
+  // Open modal listeners
   openBtn?.addEventListener('click', openModal);
   openBtnDe?.addEventListener('click', openModal);
-  closeBtn?.addEventListener('click', closeModal);
-  closeFooterBtn?.addEventListener('click', closeModal);
+
+  // Close modal listeners (both languages)
+  closeBtnEn?.addEventListener('click', closeModal);
+  closeBtnDe?.addEventListener('click', closeModal);
+  closeFooterBtnEn?.addEventListener('click', closeModal);
+  closeFooterBtnDe?.addEventListener('click', closeModal);
 
   // Close on outside click
   modal?.addEventListener('click', (e) => {
