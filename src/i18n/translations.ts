@@ -472,17 +472,17 @@ export const translations: Record<Language, Translations> = {
 
     hero: {
       name: 'Marvin Espeter',
-      title: 'IT-Experte & Entwickler',
-      intro: 'Leidenschaftlich im Erstellen von mobilen und Web-Anwendungen mit modernen Technologien. Erfahren in Flutter, Firebase und KI-Integration.',
+      title: 'Entwickler & IT-Enthusiast',
+      intro: 'Mit Leidenschaft entwickle ich mobile und Web-Anwendungen mit modernen Technologien. Erfahren in Flutter, Firebase und KI-Integration.',
       viewWorkButton: 'Meine Arbeiten',
       contactButton: 'Kontakt aufnehmen',
     },
 
     about: {
       title: 'Über mich',
-      paragraph1: "Ich bin ein IT-Professional auf Einstiegsniveau mit wachsender Leidenschaft für Softwareentwicklung. Meine Reise in die Technologie wurde von Neugier und dem Wunsch angetrieben, praktische Lösungen zu schaffen, die einen Unterschied machen.",
-      paragraph2: "Ich habe an verschiedenen Projekten gearbeitet, von mobilen Anwendungen bis zur Webentwicklung, stets begierig darauf, neue Technologien zu erlernen und meine Fähigkeiten zu verbessern. Meine Erfahrung erstreckt sich über Frontend- und Mobile-Entwicklung, mit besonderem Interesse an KI-Integration.",
-      paragraph3: "Über das Programmieren hinaus habe ich auch wertvolles Wissen in agilen Methoden und Projektmanagement erworben. Ich besitze Professional Scrum-Zertifizierungen, die mir helfen, das größere Bild der Softwareentwicklung zu verstehen.",
+      paragraph1: "Als Berufseinsteiger in der IT entwickle ich eine wachsende Leidenschaft für Softwareentwicklung. Mein Einstieg in die IT wurde von Neugier geprägt und dem Wunsch, Lösungen zu entwickeln, die einen echten Nutzen bieten.",
+      paragraph2: "Ich habe an verschiedenen Projekten gearbeitet, von mobilen Anwendungen bis zur Webentwicklung, stets motiviert, neue Technologien zu erlernen und meine Fähigkeiten zu verbessern. Meine Erfahrung erstreckt sich über Frontend- und Mobile-Entwicklung, mit besonderem Interesse an KI-Integration.",
+      paragraph3: "Über das Programmieren hinaus habe ich auch wertvolles Wissen in agilen Methoden und Projektmanagement erworben. Ich besitze Professional Scrum-Zertifizierungen, die mir einen ganzheitlichen Blick auf Softwareentwicklung ermöglichen.",
       focusAreasTitle: 'Schwerpunkte',
       focusAreas: {
         mobile: 'Mobile App-Entwicklung (Flutter)',
@@ -500,7 +500,7 @@ export const translations: Record<Language, Translations> = {
 
     skills: {
       title: 'Fähigkeiten & Technologien',
-      subtitle: 'Eine Sammlung von Technologien und Tools, mit denen ich arbeite, und die ich kontinuierlich erweitere.',
+      subtitle: 'Eine Sammlung von Technologien und Tools, mit denen ich arbeite und meine Kenntnisse kontinuierlich erweitere.',
       categories: {
         mobile: {
           title: 'Mobile Entwicklung',
@@ -542,7 +542,7 @@ export const translations: Record<Language, Translations> = {
 
     projects: {
       title: 'Projekte',
-      subtitle: "Eine Auswahl von Projekten, die ich entwickelt habe und die meine Fähigkeiten in mobiler und Web-Entwicklung zeigen.",
+      subtitle: "Eine Auswahl von Projekten, die ich entwickelt habe und die meine Fähigkeiten in der App- und Webentwicklung zeigen.",
       moreProjectsNote: 'Weitere Projekte und Code-Beispiele auf GitHub verfügbar.',
       githubNote: '',
       keyFeatures: 'Hauptfunktionen',
@@ -609,7 +609,7 @@ export const translations: Record<Language, Translations> = {
       professionalTitle: 'Berufserfahrung',
       certificationsTitle: 'Zertifizierungen & Weiterbildung',
       continuousLearningTitle: 'Kontinuierliches Lernen',
-      continuousLearningText: "Neben meiner formalen Ausbildung bin ich dem kontinuierlichen Lernen und der Kompetenzentwicklung verpflichtet. Ich arbeite aktiv an persönlichen Projekten, erkunde neue Technologien und halte mich über Branchentrends auf dem Laufenden, um mein Fachwissen in der Softwareentwicklung auszubauen.",
+      continuousLearningText: "Neben meiner formalen Ausbildung lege ich großen Wert auf kontinuierliches Lernen und Kompetenzentwicklung. Ich arbeite aktiv an persönlichen Projekten, erkunde neue Technologien und halte mich über Branchentrends auf dem Laufenden, um mein Fachwissen in der Softwareentwicklung auszubauen.",
       currentEducation: {
         title: 'Fachinformatiker für Anwendungsentwicklung',
         institution: 'Comcave College, Münster',
@@ -623,7 +623,7 @@ export const translations: Record<Language, Translations> = {
         ],
       },
       workExperience: {
-        title: 'IT-Professional',
+        title: 'Softwareentwickler',
         company: 'Verschiedene Projekte',
         period: 'Aktuell',
         responsibilities: [
@@ -638,7 +638,7 @@ export const translations: Record<Language, Translations> = {
         psm: {
           title: 'Professional Scrum Master I (PSM I)',
           issuer: 'Scrum.org',
-          description: 'Zertifiziert im Scrum Framework, Sprint-Planung und agiler Team-Facilitation.',
+          description: 'Zertifiziert im Scrum Framework, Sprint-Planung und agiler Zusammenarbeit.',
         },
         pspo: {
           title: 'Professional Scrum Product Owner I (PSPO I)',
@@ -655,7 +655,7 @@ export const translations: Record<Language, Translations> = {
 
     contact: {
       title: 'Kontakt aufnehmen',
-      subtitle: "Ich bin aktuell offen für neue Möglichkeiten und Zusammenarbeiten. Kontaktieren Sie mich gerne, wenn Sie über Projekte, Möglichkeiten sprechen oder einfach nur Kontakt aufnehmen möchten.",
+      subtitle: "Ich bin offen für neue Möglichkeiten und freue mich über Kontaktanfragen – ob für Projekte, Kooperationen oder einen ersten Austausch.",
       email: {
         title: 'Email',
         description: 'Senden Sie mir eine Nachricht',
@@ -667,7 +667,7 @@ export const translations: Record<Language, Translations> = {
         status: 'Link folgt in Kürze',
         action: 'Öffnet in neuem Tab',
       },
-      closingText: "Ob Sie einen Entwickler für Ihr Projekt suchen, an etwas Spannendem zusammenarbeiten möchten oder einfach nur Hallo sagen wollen – ich würde mich freuen, von Ihnen zu hören. Ich antworte in der Regel innerhalb von 24 Stunden.",
+      closingText: "Ob Sie einen Entwickler suchen, eine spannende Idee besprechen möchten oder einfach Hallo sagen wollen – ich freue mich, von Ihnen zu hören. Ich antworte in der Regel innerhalb von 24 Stunden.",
     },
 
     impressum: {
