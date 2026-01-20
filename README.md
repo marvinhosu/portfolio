@@ -1,4 +1,4 @@
-# Marvin Espeter - Portfolio
+# Portfolio
 
 A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwind CSS. Features password protection, responsive design, and a professional layout perfect for showcasing IT projects and skills.
 

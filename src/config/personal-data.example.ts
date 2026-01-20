@@ -10,6 +10,7 @@ export const personalData = {
   },
 
   impressum: {
+    name: 'Max Mustermann',
     street: 'Musterstraße 123',
     city: '12345 Musterstadt',
     country: 'Germany',
