@@ -18,6 +18,20 @@ const { title = personalData.siteTitle } = Astro.props;
     <!-- Prevent search engine indexing - Remove these meta tags when ready to go public -->
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={personalData.siteDescription} />
+    {personalData.siteUrl && <meta property="og:url" content={personalData.siteUrl} />}
+    {personalData.ogImage && <meta property="og:image" content={personalData.ogImage} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={personalData.siteDescription} />
+    {personalData.ogImage && <meta name="twitter:image" content={personalData.ogImage} />}
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

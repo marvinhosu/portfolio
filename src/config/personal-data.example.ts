@@ -6,6 +6,8 @@ export const personalData = {
   // Site metadata
   siteTitle: 'Portfolio',
   siteDescription: 'IT Professional Portfolio',
+  siteUrl: 'https://your-domain.com', // Optional: used for Open Graph URL
+  ogImage: '', // Optional: full URL to image for social media previews (e.g., 'https://your-domain.com/og-image.png')
 
   contact: {
     email: 'your.name@example.com',

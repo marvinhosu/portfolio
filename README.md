@@ -15,6 +15,7 @@ A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwin
 - **Single Page Layout** - Smooth scrolling between sections
 - **Legal Compliance** - Impressum modal for German/EU legal requirements
 - **SEO Friendly** - Optimized meta tags and semantic HTML
+- **Social Sharing** - Open Graph and Twitter Card meta tags for rich link previews
 - **Privacy First** - Personal data protected via gitignored config files
 
 ## Tech Stack
@@ -127,6 +128,8 @@ The portfolio uses a secure configuration system to keep your personal informati
    export const personalData = {
      siteTitle: 'Your Name - Portfolio',
      siteDescription: 'Your Name - IT Professional Portfolio',
+     siteUrl: 'https://your-domain.com',        // Optional: for Open Graph URL
+     ogImage: 'https://your-domain.com/og.png', // Optional: social media preview image
 
      contact: {
        email: 'your.email@example.com',
