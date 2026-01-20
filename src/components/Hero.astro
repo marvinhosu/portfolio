@@ -1,6 +1,7 @@
 ---
 // Hero section - First impression
 import { translations } from '../i18n/translations';
+import { personalData } from '../config/personal-data';
 const en = translations.en;
 const de = translations.de;
 ---
@@ -16,7 +17,7 @@ const de = translations.de;
 
     <!-- Name and Title - English -->
     <h1 data-lang="en" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-      {en.hero.name}
+      {personalData.impressum.name}
     </h1>
 
     <p data-lang="en" class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 font-light">
@@ -30,7 +31,7 @@ const de = translations.de;
 
     <!-- Name and Title - German -->
     <h1 data-lang="de" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-      {de.hero.name}
+      {personalData.impressum.name}
     </h1>
 
     <p data-lang="de" class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 font-light">

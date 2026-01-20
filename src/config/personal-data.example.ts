@@ -3,6 +3,10 @@
 // personal-data.ts is gitignored and will never be committed to GitHub
 
 export const personalData = {
+  // Site metadata
+  siteTitle: 'Portfolio',
+  siteDescription: 'IT Professional Portfolio',
+
   contact: {
     email: 'your.name@example.com',
     linkedin: 'https://linkedin.com/in/your-profile',

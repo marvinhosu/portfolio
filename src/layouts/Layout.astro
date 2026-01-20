@@ -1,16 +1,18 @@
 ---
+import { personalData } from '../config/personal-data';
+
 interface Props {
-  title: string;
+  title?: string;
 }
 
-const { title } = Astro.props;
+const { title = personalData.siteTitle } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Marvin Espeter - IT Professional Portfolio" />
+    <meta name="description" content={personalData.siteDescription} />
     <meta name="viewport" content="width=device-width" />
 
     <!-- Prevent search engine indexing - Remove these meta tags when ready to go public -->

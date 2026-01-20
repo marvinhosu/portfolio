@@ -230,7 +230,7 @@ export const translations: Record<Language, Translations> = {
     },
 
     hero: {
-      name: 'Marvin Espeter',
+      name: '', // Loaded from personal-data.ts
       title: 'IT Professional & Developer',
       intro: 'Passionate about building mobile and web applications with modern technologies. Experienced in Flutter, Firebase, and AI integration.',
       viewWorkButton: 'View My Work',
@@ -456,7 +456,7 @@ export const translations: Record<Language, Translations> = {
     },
 
     footer: {
-      copyright: '© 2025 Marvin Espeter. All rights reserved.',
+      copyright: '', // Constructed in component with personal-data.ts
       impressumButton: 'Legal Notice',
     },
   },
@@ -471,7 +471,7 @@ export const translations: Record<Language, Translations> = {
     },
 
     hero: {
-      name: 'Marvin Espeter',
+      name: '', // Loaded from personal-data.ts
       title: 'Entwickler & IT-Enthusiast',
       intro: 'Mit Leidenschaft entwickle ich mobile und Web-Anwendungen mit modernen Technologien. Erfahren in Flutter, Firebase und KI-Integration.',
       viewWorkButton: 'Meine Arbeiten',
@@ -697,7 +697,7 @@ export const translations: Record<Language, Translations> = {
     },
 
     footer: {
-      copyright: '© 2025 Marvin Espeter. Alle Rechte vorbehalten.',
+      copyright: '', // Constructed in component with personal-data.ts
       impressumButton: 'Impressum',
     },
   },
