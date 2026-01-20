@@ -34,8 +34,8 @@ export interface Translations {
     };
     currentlyLearningTitle: string;
     learning: {
-      react: string;
-      backend: string;
+      vba: string;
+      csharp: string;
       patterns: string;
     };
   };
@@ -116,16 +116,32 @@ export interface Translations {
         features: string[];
         tech: string[];
       };
+      vacationRental: {
+        title: string;
+        category: string;
+        status: string;
+        description: string;
+        features: string[];
+        tech: string[];
+      };
     };
   };
 
   // Experience Section
   experience: {
     title: string;
+    educationTitle: string;
     professionalTitle: string;
     certificationsTitle: string;
     continuousLearningTitle: string;
     continuousLearningText: string;
+    currentEducation: {
+      title: string;
+      institution: string;
+      period: string;
+      status: string;
+      topics: string[];
+    };
     workExperience: {
       title: string;
       company: string;
@@ -160,22 +176,11 @@ export interface Translations {
       description: string;
       action: string;
     };
-    linkedin: {
-      title: string;
-      description: string;
-      action: string;
-    };
     github: {
       title: string;
       description: string;
       status: string;
       action: string;
-    };
-    cv: {
-      title: string;
-      description: string;
-      format: string;
-      status: string;
     };
     closingText: string;
   };
@@ -246,9 +251,9 @@ export const translations: Record<Language, Translations> = {
       },
       currentlyLearningTitle: 'Currently Learning',
       learning: {
-        react: 'React & Modern JavaScript',
-        backend: 'Backend Development',
-        patterns: 'Best Practices & Design Patterns',
+        vba: 'VBA for Business Applications',
+        csharp: 'C# Development (upcoming)',
+        patterns: 'Software Architecture & Design Patterns',
       },
     },
 
@@ -266,7 +271,7 @@ export const translations: Record<Language, Translations> = {
         },
         backend: {
           title: 'Backend & Cloud',
-          skills: ['Firebase', 'Authentication', 'Real-time Database', 'Cloud Functions'],
+          skills: ['Firebase', 'Authentication', 'Real-time Database', 'Cloud Functions', 'C# (Learning)'],
         },
         ai: {
           title: 'AI & Automation',
@@ -278,7 +283,7 @@ export const translations: Record<Language, Translations> = {
         },
         tools: {
           title: 'Tools & Technologies',
-          skills: ['Git & Version Control', 'VS Code', 'Chrome DevTools', 'Responsive Design'],
+          skills: ['Git & Version Control', 'VS Code', 'VBA', 'Chrome DevTools', 'Responsive Design'],
         },
       },
       certificationsTitle: 'Certifications',
@@ -297,8 +302,8 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Projects',
       subtitle: "A selection of projects I've built, showcasing my skills in mobile and web development.",
-      moreProjectsNote: 'More projects and code samples coming soon.',
-      githubNote: 'GitHub Profile Link Coming Soon',
+      moreProjectsNote: 'More projects and code samples available on GitHub.',
+      githubNote: '',
       keyFeatures: 'Key Features',
       technologies: 'Technologies Used',
       projectList: {
@@ -316,17 +321,17 @@ export const translations: Record<Language, Translations> = {
           tech: ['Flutter', 'Dart', 'Firebase', 'Gemini AI API'],
         },
         healthcareApp: {
-          title: 'Healthcare Web Application',
+          title: 'Care Consulting Website',
           category: 'Web App',
           status: 'Completed',
-          description: 'A frontend web application for a healthcare project, built with vanilla HTML, CSS, and JavaScript. Focused on clean user interface and responsive design for medical information management.',
+          description: 'Professional website for a care consulting service, built with Bootstrap and vanilla JavaScript. Features elderly-friendly design with full accessibility compliance, mobile-optimized contact options, and German legal compliance.',
           features: [
-            'Responsive design for mobile and desktop',
-            'Clean, accessible user interface',
-            'Optimized performance with vanilla JavaScript',
-            'Healthcare-focused information architecture',
+            'WCAG 2.1 AA accessibility (large fonts, keyboard navigation, screen reader support)',
+            'Mobile sticky contact bar with WhatsApp integration',
+            'Trust-building credentials section and 3-step process visualization',
+            'Full legal compliance with Impressum and Datenschutz (GDPR)',
           ],
-          tech: ['HTML5', 'CSS3', 'JavaScript'],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap 5'],
         },
         portfolio: {
           title: 'Portfolio Website',
@@ -341,15 +346,41 @@ export const translations: Record<Language, Translations> = {
           ],
           tech: ['Astro', 'TypeScript', 'Tailwind CSS'],
         },
+        vacationRental: {
+          title: 'Vacation Rental Website',
+          category: 'Web App',
+          status: 'Completed',
+          description: 'Interactive single-page website for a vacation rental property featuring 12 apartments. Visitors can explore apartments by floor through an intuitive building diagram interface with smooth animations and a modern dark theme.',
+          features: [
+            'Interactive building map with floor selection',
+            'Slide-out apartment detail panels with booking links',
+            'Scroll-based animations and ambient effects',
+            'Firebase Hosting with global CDN deployment',
+          ],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Firebase Hosting'],
+        },
       },
     },
 
     experience: {
       title: 'Experience & Education',
+      educationTitle: 'Current Education',
       professionalTitle: 'Professional Experience',
       certificationsTitle: 'Certifications & Training',
       continuousLearningTitle: 'Continuous Learning',
-      continuousLearningText: "As a beginner-level IT professional, I'm committed to continuous learning and skill development. I actively work on personal projects, explore new technologies, and stay updated with industry trends to grow my expertise in software development and project management.",
+      continuousLearningText: "Beyond my formal training, I'm committed to continuous learning and skill development. I actively work on personal projects, explore new technologies, and stay updated with industry trends to grow my expertise in software development.",
+      currentEducation: {
+        title: 'IT Specialist for Application Development',
+        institution: 'Comcave College, Münster',
+        period: '09/2025 - Present',
+        status: 'In Progress',
+        topics: [
+          'VBA for business applications',
+          'C# application development (upcoming)',
+          'Software development fundamentals',
+          'Database management',
+        ],
+      },
       workExperience: {
         title: 'IT Professional',
         company: 'Various Projects',
@@ -357,6 +388,7 @@ export const translations: Record<Language, Translations> = {
         responsibilities: [
           'Developed mobile applications using Flutter and Firebase',
           'Built frontend web applications for healthcare sector',
+          'Created interactive vacation rental website with building map interface, apartment showcase, and Firebase Hosting deployment',
           'Integrated AI APIs (Gemini) into mobile applications',
           'Utilized AI tools for code development and image generation',
         ],
@@ -388,55 +420,44 @@ export const translations: Record<Language, Translations> = {
         description: 'Send me a message',
         action: 'Click to compose email',
       },
-      linkedin: {
-        title: 'LinkedIn',
-        description: "Let's connect professionally",
-        action: 'Opens in new tab',
-      },
       github: {
         title: 'GitHub',
         description: 'Check out my code',
         status: 'Link coming soon',
         action: 'Opens in new tab',
       },
-      cv: {
-        title: 'Download CV',
-        description: 'Get my resume',
-        format: 'PDF Format',
-        status: 'Coming soon',
-      },
       closingText: "Whether you're looking for a developer for your project, want to collaborate on something exciting, or just want to say hi, I'd love to hear from you. I typically respond within 24 hours.",
     },
 
     impressum: {
-      title: 'Impressum',
-      information: 'Angaben gemäß § 5 TMG',
-      contactTitle: 'Kontakt',
-      disclaimerTitle: 'Haftungsausschluss',
+      title: 'Legal Notice',
+      information: 'Information according to § 5 DDG',
+      contactTitle: 'Contact',
+      disclaimerTitle: 'Disclaimer',
       contentLiability: {
-        title: 'Haftung für Inhalte',
-        text: 'Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.',
+        title: 'Liability for Content',
+        text: 'The contents of my pages were created with great care. However, I cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, I am responsible for my own content on these pages according to general laws pursuant to § 7 (1) DDG. According to §§ 8 to 10 DDG, however, I am not obligated as a service provider to monitor transmitted or stored third-party information.',
       },
       linkLiability: {
-        title: 'Haftung für Links',
-        text: 'Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.',
+        title: 'Liability for Links',
+        text: 'My website contains links to external third-party websites over whose content I have no influence. Therefore, I cannot accept any liability for this third-party content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking.',
       },
       copyright: {
-        title: 'Urheberrecht',
-        text: 'Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.',
+        title: 'Copyright',
+        text: 'The content and works on these pages created by me are subject to German copyright law. Reproduction, editing, distribution, and any kind of use beyond the limits of copyright law require my written consent. Downloads and copies of this site are only permitted for private, non-commercial use.',
       },
       dataProtection: {
-        title: 'Datenschutz',
-        text1: 'Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.',
-        text2: 'Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.',
+        title: 'Data Protection',
+        text1: 'The use of my website is generally possible without providing personal data. This website does not use cookies and does not collect personal data. No analytics or tracking tools are used.',
+        text2: 'I would like to point out that data transmission over the Internet (e.g., communication by email) may have security vulnerabilities. Complete protection of data against access by third parties is not possible.',
       },
-      note: 'Bitte ersetzen Sie die Platzhaltertexte mit Ihren tatsächlichen Kontaktdaten und passen Sie die rechtlichen Hinweise ggf. an Ihre spezifische Situation an. Bei Bedarf konsultieren Sie einen Rechtsanwalt für eine vollständige und rechtssichere Impressumsgestaltung.',
-      closeButton: 'Schließen',
+      note: 'Last updated: January 2025',
+      closeButton: 'Close',
     },
 
     footer: {
-      copyright: '© 2024 Marvin Espeter. All rights reserved.',
-      impressumButton: 'Impressum',
+      copyright: '© 2025 Marvin Espeter. All rights reserved.',
+      impressumButton: 'Legal Notice',
     },
   },
 
@@ -471,9 +492,9 @@ export const translations: Record<Language, Translations> = {
       },
       currentlyLearningTitle: 'Aktuell lerne ich',
       learning: {
-        react: 'React & Modernes JavaScript',
-        backend: 'Backend-Entwicklung',
-        patterns: 'Best Practices & Design Patterns',
+        vba: 'VBA für Geschäftsanwendungen',
+        csharp: 'C# Entwicklung (kommend)',
+        patterns: 'Softwarearchitektur & Design Patterns',
       },
     },
 
@@ -491,7 +512,7 @@ export const translations: Record<Language, Translations> = {
         },
         backend: {
           title: 'Backend & Cloud',
-          skills: ['Firebase', 'Authentifizierung', 'Echtzeit-Datenbank', 'Cloud Functions'],
+          skills: ['Firebase', 'Authentifizierung', 'Echtzeit-Datenbank', 'Cloud Functions', 'C# (In Arbeit)'],
         },
         ai: {
           title: 'KI & Automatisierung',
@@ -503,7 +524,7 @@ export const translations: Record<Language, Translations> = {
         },
         tools: {
           title: 'Tools & Technologien',
-          skills: ['Git & Versionsverwaltung', 'VS Code', 'Chrome DevTools', 'Responsive Design'],
+          skills: ['Git & Versionsverwaltung', 'VS Code', 'VBA', 'Chrome DevTools', 'Responsive Design'],
         },
       },
       certificationsTitle: 'Zertifizierungen',
@@ -522,8 +543,8 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Projekte',
       subtitle: "Eine Auswahl von Projekten, die ich entwickelt habe und die meine Fähigkeiten in mobiler und Web-Entwicklung zeigen.",
-      moreProjectsNote: 'Weitere Projekte und Code-Beispiele folgen bald.',
-      githubNote: 'GitHub-Profil-Link folgt in Kürze',
+      moreProjectsNote: 'Weitere Projekte und Code-Beispiele auf GitHub verfügbar.',
+      githubNote: '',
       keyFeatures: 'Hauptfunktionen',
       technologies: 'Verwendete Technologien',
       projectList: {
@@ -541,17 +562,17 @@ export const translations: Record<Language, Translations> = {
           tech: ['Flutter', 'Dart', 'Firebase', 'Gemini AI API'],
         },
         healthcareApp: {
-          title: 'Gesundheitswesen Web-Anwendung',
+          title: 'Pflegeberatungs-Website',
           category: 'Web App',
           status: 'Abgeschlossen',
-          description: 'Eine Frontend-Web-Anwendung für ein Gesundheitsprojekt, entwickelt mit reinem HTML, CSS und JavaScript. Fokussiert auf saubere Benutzeroberfläche und responsives Design für medizinische Informationsverwaltung.',
+          description: 'Professionelle Website für einen Pflegeberatungsdienst, entwickelt mit Bootstrap und Vanilla JavaScript. Mit seniorenfreundlichem Design, vollständiger Barrierefreiheit, mobiloptimierten Kontaktoptionen und deutscher Rechtskonformität.',
           features: [
-            'Responsives Design für Mobilgeräte und Desktop',
-            'Saubere, zugängliche Benutzeroberfläche',
-            'Optimierte Performance mit reinem JavaScript',
-            'Auf Gesundheitswesen fokussierte Informationsarchitektur',
+            'WCAG 2.1 AA Barrierefreiheit (große Schrift, Tastaturnavigation, Screenreader-Unterstützung)',
+            'Mobile Sticky-Kontaktleiste mit WhatsApp-Integration',
+            'Vertrauensbildende Referenzen und 3-Schritte-Prozessvisualisierung',
+            'Vollständige Rechtskonformität mit Impressum und Datenschutz (DSGVO)',
           ],
-          tech: ['HTML5', 'CSS3', 'JavaScript'],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap 5'],
         },
         portfolio: {
           title: 'Portfolio-Website',
@@ -566,15 +587,41 @@ export const translations: Record<Language, Translations> = {
           ],
           tech: ['Astro', 'TypeScript', 'Tailwind CSS'],
         },
+        vacationRental: {
+          title: 'Ferienwohnungs-Website',
+          category: 'Web App',
+          status: 'Abgeschlossen',
+          description: 'Interaktive Single-Page-Website für eine Ferienwohnungsanlage mit 12 Apartments. Besucher können Wohnungen nach Etage über eine intuitive Gebäudekarten-Oberfläche mit flüssigen Animationen und modernem dunklen Design erkunden.',
+          features: [
+            'Interaktive Gebäudekarte mit Etagenauswahl',
+            'Ausklappbare Wohnungsdetails mit Buchungslinks',
+            'Scroll-basierte Animationen und Ambient-Effekte',
+            'Firebase Hosting mit globalem CDN-Deployment',
+          ],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Firebase Hosting'],
+        },
       },
     },
 
     experience: {
       title: 'Erfahrung & Bildung',
+      educationTitle: 'Aktuelle Ausbildung',
       professionalTitle: 'Berufserfahrung',
       certificationsTitle: 'Zertifizierungen & Weiterbildung',
       continuousLearningTitle: 'Kontinuierliches Lernen',
-      continuousLearningText: "Als IT-Professional auf Einstiegsniveau bin ich dem kontinuierlichen Lernen und der Kompetenzentwicklung verpflichtet. Ich arbeite aktiv an persönlichen Projekten, erkunde neue Technologien und halte mich über Branchentrends auf dem Laufenden, um mein Fachwissen in Softwareentwicklung und Projektmanagement auszubauen.",
+      continuousLearningText: "Neben meiner formalen Ausbildung bin ich dem kontinuierlichen Lernen und der Kompetenzentwicklung verpflichtet. Ich arbeite aktiv an persönlichen Projekten, erkunde neue Technologien und halte mich über Branchentrends auf dem Laufenden, um mein Fachwissen in der Softwareentwicklung auszubauen.",
+      currentEducation: {
+        title: 'Fachinformatiker für Anwendungsentwicklung',
+        institution: 'Comcave College, Münster',
+        period: '09/2025 - Heute',
+        status: 'In Ausbildung',
+        topics: [
+          'VBA für Geschäftsanwendungen',
+          'C# Anwendungsentwicklung (kommend)',
+          'Grundlagen der Softwareentwicklung',
+          'Datenbankverwaltung',
+        ],
+      },
       workExperience: {
         title: 'IT-Professional',
         company: 'Verschiedene Projekte',
@@ -582,6 +629,7 @@ export const translations: Record<Language, Translations> = {
         responsibilities: [
           'Entwicklung mobiler Anwendungen mit Flutter und Firebase',
           'Erstellung von Frontend-Web-Anwendungen für den Gesundheitssektor',
+          'Erstellung einer interaktiven Ferienwohnungs-Website mit Gebäudekarten-Interface, Wohnungsübersicht und Firebase Hosting Deployment',
           'Integration von KI-APIs (Gemini) in mobile Anwendungen',
           'Nutzung von KI-Tools für Code-Entwicklung und Bildgenerierung',
         ],
@@ -613,54 +661,43 @@ export const translations: Record<Language, Translations> = {
         description: 'Senden Sie mir eine Nachricht',
         action: 'Klicken zum Verfassen einer E-Mail',
       },
-      linkedin: {
-        title: 'LinkedIn',
-        description: 'Lassen Sie uns professionell vernetzen',
-        action: 'Öffnet in neuem Tab',
-      },
       github: {
         title: 'GitHub',
         description: 'Schauen Sie sich meinen Code an',
         status: 'Link folgt in Kürze',
         action: 'Öffnet in neuem Tab',
       },
-      cv: {
-        title: 'Lebenslauf herunterladen',
-        description: 'Mein Lebenslauf',
-        format: 'PDF-Format',
-        status: 'Folgt in Kürze',
-      },
       closingText: "Ob Sie einen Entwickler für Ihr Projekt suchen, an etwas Spannendem zusammenarbeiten möchten oder einfach nur Hallo sagen wollen – ich würde mich freuen, von Ihnen zu hören. Ich antworte in der Regel innerhalb von 24 Stunden.",
     },
 
     impressum: {
       title: 'Impressum',
-      information: 'Angaben gemäß § 5 TMG',
+      information: 'Angaben gemäß § 5 DDG',
       contactTitle: 'Kontakt',
       disclaimerTitle: 'Haftungsausschluss',
       contentLiability: {
         title: 'Haftung für Inhalte',
-        text: 'Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.',
+        text: 'Die Inhalte meiner Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.',
       },
       linkLiability: {
         title: 'Haftung für Links',
-        text: 'Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.',
+        text: 'Mein Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.',
       },
       copyright: {
         title: 'Urheberrecht',
-        text: 'Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.',
+        text: 'Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.',
       },
       dataProtection: {
         title: 'Datenschutz',
-        text1: 'Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.',
-        text2: 'Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.',
+        text1: 'Die Nutzung meiner Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Diese Webseite verwendet keine Cookies und erhebt keine personenbezogenen Daten. Es werden keine Analyse- oder Tracking-Tools eingesetzt.',
+        text2: 'Ich weise darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.',
       },
-      note: 'Bitte ersetzen Sie die Platzhaltertexte mit Ihren tatsächlichen Kontaktdaten und passen Sie die rechtlichen Hinweise ggf. an Ihre spezifische Situation an. Bei Bedarf konsultieren Sie einen Rechtsanwalt für eine vollständige und rechtssichere Impressumsgestaltung.',
+      note: 'Stand: Januar 2025',
       closeButton: 'Schließen',
     },
 
     footer: {
-      copyright: '© 2024 Marvin Espeter. Alle Rechte vorbehalten.',
+      copyright: '© 2025 Marvin Espeter. Alle Rechte vorbehalten.',
       impressumButton: 'Impressum',
     },
   },
