@@ -4,9 +4,9 @@
 
 export const personalData = {
   contact: {
-    email: 'marvin.espeter@example.com',
-    linkedin: 'https://linkedin.com/in/marvin-espeter',
-    github: 'https://github.com/marvinespeter',
+    email: 'your.name@example.com',
+    linkedin: 'https://linkedin.com/in/your-profile',
+    github: 'https://github.com/yourusername',
   },
 
   impressum: {
