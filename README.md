@@ -125,12 +125,16 @@ The portfolio uses a secure configuration system to keep your personal informati
 2. **Edit `src/config/personal-data.ts`** with your actual information:
    ```typescript
    export const personalData = {
+     siteTitle: 'Your Name - Portfolio',
+     siteDescription: 'Your Name - IT Professional Portfolio',
+
      contact: {
        email: 'your.email@example.com',
        linkedin: 'https://linkedin.com/in/yourprofile',
        github: 'https://github.com/yourusername',
      },
      impressum: {
+       name: 'Your Full Name',
        street: 'Your Street 123',
        city: '12345 Your City',
        country: 'Your Country',
