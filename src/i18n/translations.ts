@@ -493,7 +493,7 @@ export const translations: Record<Language, Translations> = {
       currentlyLearningTitle: 'Aktuell lerne ich',
       learning: {
         vba: 'VBA für Geschäftsanwendungen',
-        csharp: 'C# Entwicklung (kommend)',
+        csharp: 'C# Entwicklung (Einsteiger)',
         patterns: 'Softwarearchitektur & Design Patterns',
       },
     },
@@ -617,7 +617,7 @@ export const translations: Record<Language, Translations> = {
         status: 'In Ausbildung',
         topics: [
           'VBA für Geschäftsanwendungen',
-          'C# Anwendungsentwicklung (kommend)',
+          'C# Anwendungsentwicklung (Einsteiger)',
           'Grundlagen der Softwareentwicklung',
           'Datenbankverwaltung',
         ],
