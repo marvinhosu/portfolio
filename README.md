@@ -1,11 +1,13 @@
 # Portfolio
 
-A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwind CSS. Features password protection, responsive design, and a professional layout perfect for showcasing IT projects and skills.
+A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwind CSS. Features server-side password protection via PHP, responsive design, and a professional layout perfect for showcasing IT projects and skills.
 
 ## Features
 
-- **Password Protected** - Secure environment-based password management with SHA-256 hashing
-- **Brute Force Protection** - Rate limiting (5 attempts, 15-minute lockout)
+- **Server-Side Password Protection** - PHP login gate with bcrypt hashing; content is never sent to unauthenticated visitors
+- **Brute Force Protection** - Server-side rate limiting (5 attempts, 15-minute lockout)
+- **Security Headers** - CSP, X-Frame-Options, Referrer-Policy, and more via .htaccess
+- **CSRF Protection** - Token-based form protection against cross-site request forgery
 - **Bilingual Support** - Instant EN/DE language switching without page reload
 - **Dark Mode** - Light/Dark theme toggle with localStorage persistence
 - **Modern Tech Stack** - Built with Astro, TypeScript, and Tailwind CSS v3
@@ -14,16 +16,16 @@ A modern, minimalist portfolio website built with Astro, TypeScript, and Tailwin
 - **Minimalist Design** - Clean, professional aesthetic
 - **Single Page Layout** - Smooth scrolling between sections
 - **Legal Compliance** - Impressum modal for German/EU legal requirements
-- **SEO Friendly** - Optimized meta tags and semantic HTML
-- **Social Sharing** - Open Graph and Twitter Card meta tags for rich link previews
-- **Privacy First** - Personal data protected via gitignored config files
+- **GDPR Compliant Fonts** - Self-hosted Inter font (no Google Fonts requests)
+- **Privacy First** - Personal data and password hash protected via gitignored config files
 
 ## Tech Stack
 
 - **[Astro](https://astro.build/)** - Modern static site generator
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[Inter Font](https://fonts.google.com/specimen/Inter)** - Clean, professional typography
+- **[PHP](https://www.php.net/)** - Server-side authentication gate
+- **[Inter Font](https://rsms.me/inter/)** - Self-hosted, clean typography
 
 ## Project Structure
 
@@ -36,16 +38,27 @@ portfolio/
 │   │   ├── Experience.astro
 │   │   ├── Hero.astro
 │   │   ├── Impressum.astro
-│   │   ├── PasswordGate.astro
+│   │   ├── LanguageToggle.astro
+│   │   ├── ThemeToggle.astro
 │   │   ├── Projects.astro
 │   │   └── Skills.astro
+│   ├── i18n/             # Translation infrastructure
+│   │   ├── translations.ts
+│   │   └── utils.ts
 │   ├── layouts/          # Page layouts
 │   │   └── Layout.astro
 │   ├── pages/            # Routes
 │   │   └── index.astro
 │   └── styles/           # Global styles
 │       └── global.css
-├── public/               # Static assets
+├── public/               # Static assets (copied to dist/)
+│   ├── .htaccess         # Apache security config
+│   ├── index.php         # PHP login gate
+│   ├── config.php        # Password hash (gitignored)
+│   ├── config.example.php# Template for config.php
+│   ├── fonts/            # Self-hosted Inter font
+│   ├── favicon.svg
+│   └── robots.txt
 ├── astro.config.mjs      # Astro configuration
 ├── tailwind.config.mjs   # Tailwind configuration
 ├── tsconfig.json         # TypeScript configuration
@@ -57,7 +70,7 @@ portfolio/
 ### Prerequisites
 
 - Node.js 18+ and npm installed
-- Basic knowledge of command line
+- PHP (for local testing of the login gate)
 
 ### Installation
 
@@ -66,184 +79,158 @@ portfolio/
    npm install
    ```
 
-2. **Start the development server:**
+2. **Set up personal data:**
+   ```bash
+   cp src/config/personal-data.example.ts src/config/personal-data.ts
+   ```
+   Edit `src/config/personal-data.ts` with your real information.
+
+3. **Set up password:**
+   ```bash
+   cp public/config.example.php public/config.php
+   ```
+   Generate a bcrypt hash and add it to `config.php` (see [Password Management](#password-management)).
+
+4. **Start the development server:**
    ```bash
    npm run dev
    ```
+   This runs the Astro dev server at `http://localhost:4321` (no PHP login gate).
 
-3. **Open your browser:**
-   Navigate to `http://localhost:4321`
+5. **Test with PHP login gate (optional):**
+   ```bash
+   npm run build
+   php -S localhost:8080 -t dist
+   ```
+   Visit `http://localhost:8080` to test the full login flow.
 
 ### Available Commands
 
 | Command                | Action                                           |
 | :--------------------- | :----------------------------------------------- |
 | `npm install`          | Install dependencies                             |
-| `npm run dev`          | Start local dev server at `localhost:4321`       |
+| `npm run dev`          | Start Astro dev server at `localhost:4321`        |
 | `npm run build`        | Build production site to `./dist/`               |
-| `./build.sh`           | Build with environment variables properly loaded |
-| `npm run preview`      | Preview build locally before deploying           |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `php -S localhost:8080 -t dist` | Test PHP login gate locally              |
 
 ## Configuration
 
 ### Password Management
 
-The portfolio uses environment variables for secure password management:
+The portfolio uses a PHP login gate with bcrypt password hashing. The hash is stored in `public/config.php` (gitignored).
 
-**Local Development:**
-1. Copy the example file:
+**Setting up your password:**
+
+1. Copy the example config:
    ```bash
-   cp .env.example .env
+   cp public/config.example.php public/config.php
    ```
-2. Generate your password hash:
+
+2. Generate a bcrypt hash using one of these methods:
+
+   **With PHP CLI:**
    ```bash
-   echo -n "your-password" | sha256sum
-   ```
-3. Update `.env` with your hash:
-   ```env
-   PUBLIC_PASSWORD_HASH=your-generated-hash-here
+   php -r "echo password_hash('your-password', PASSWORD_DEFAULT) . PHP_EOL;"
    ```
 
-**Production Deployment:**
-Set `PUBLIC_PASSWORD_HASH` in your deployment platform's environment variables:
-- **Vercel**: Settings → Environment Variables
-- **Netlify**: Site Settings → Environment Variables
-- **Cloudflare Pages**: Settings → Environment Variables
+   **With Python:**
+   ```bash
+   python3 -c "import bcrypt; print(bcrypt.hashpw(b'your-password', bcrypt.gensalt()).decode())"
+   ```
 
-⚠️ **Important**: Never commit `.env` to git (already in `.gitignore`)
+   **Via temporary web script:**
+   Create a temporary `generate_hash.php`, upload it, use it once, then delete it immediately.
+
+3. Paste the hash into `public/config.php`:
+   ```php
+   define('PASSWORD_HASH', '$2y$10$your-generated-hash-here');
+   ```
+
+**Security notes:**
+- `config.php` is gitignored and blocked from direct web access via `.htaccess`
+- The hash never leaves the server; PHP processes it server-side
+- bcrypt is intentionally slow, making brute-force attacks impractical
 
 ### Customizing Content
 
 #### Personal Data (Contact & Impressum)
-The portfolio uses a secure configuration system to keep your personal information out of Git:
 
 1. **Create your personal data file:**
    ```bash
    cp src/config/personal-data.example.ts src/config/personal-data.ts
    ```
 
-2. **Edit `src/config/personal-data.ts`** with your actual information:
-   ```typescript
-   export const personalData = {
-     siteTitle: 'Your Name - Portfolio',
-     siteDescription: 'Your Name - IT Professional Portfolio',
-     siteUrl: 'https://your-domain.com',        // Optional: for Open Graph URL
-     ogImage: 'https://your-domain.com/og.png', // Optional: social media preview image
+2. **Edit `src/config/personal-data.ts`** with your actual information.
 
-     contact: {
-       email: 'your.email@example.com',
-       linkedin: 'https://linkedin.com/in/yourprofile',
-       github: 'https://github.com/yourusername',
-     },
-     impressum: {
-       name: 'Your Full Name',
-       street: 'Your Street 123',
-       city: '12345 Your City',
-       country: 'Your Country',
-     },
-   };
-   ```
-
-3. **That's it!** This file is gitignored and will never be committed to GitHub.
+3. This file is gitignored and will never be committed to GitHub.
 
 #### Other Content
 
-- **Hero Section**: Edit `src/components/Hero.astro` for name and tagline
-- **About Section**: Edit `src/components/About.astro` for bio and personal story
+- **Hero Section**: Edit `src/components/Hero.astro`
+- **About Section**: Edit `src/components/About.astro`
 - **Projects**: Update the `projects` array in `src/components/Projects.astro`
 - **Skills**: Edit the `skillCategories` array in `src/components/Skills.astro`
+- **Translations**: Edit `src/i18n/translations.ts` for EN/DE content
 
-## Deployment
+## Deployment (Hetzner Webhosting)
 
-### Deploy to Vercel (Recommended)
-
-1. **Install Vercel CLI:**
-   ```bash
-   npm install -g vercel
-   ```
-
-2. **Build your site:**
-   ```bash
-   npm run build
-   ```
-
-3. **Deploy:**
-   ```bash
-   vercel
-   ```
-
-4. **Follow the prompts** to link your project and deploy
-
-Alternatively, connect your GitHub repository to Vercel for automatic deployments:
-- Go to [vercel.com](https://vercel.com)
-- Import your GitHub repository
-- Vercel will automatically detect Astro and configure build settings
-
-### Deploy to Cloudflare Pages
+This site is designed for Hetzner Webhosting S (or any Apache + PHP shared hosting).
 
 1. **Build your site:**
    ```bash
    npm run build
    ```
 
-2. **Go to [Cloudflare Pages](https://pages.cloudflare.com/)**
-
-3. **Create a new project** and connect your Git repository
-
-4. **Configure build settings:**
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Framework preset: Astro
-
-5. **Deploy!**
-
-### Deploy to Netlify
-
-1. **Install Netlify CLI:**
-   ```bash
-   npm install -g netlify-cli
+2. **Upload `dist/` contents to your web root via FTP/SFTP:**
+   ```
+   /your-web-root/
+   ├── .htaccess         # Security headers + access rules
+   ├── index.php         # PHP login gate (entry point)
+   ├── index.html        # Portfolio (served by PHP after auth)
+   ├── config.php        # Password hash (upload manually!)
+   ├── config.example.php
+   ├── fonts/
+   ├── _astro/
+   ├── favicon.svg
+   └── robots.txt
    ```
 
-2. **Build your site:**
-   ```bash
-   npm run build
-   ```
+   **Important:** `config.php` is gitignored and not in the build output. You must upload it separately or create it on the server.
 
-3. **Deploy:**
-   ```bash
-   netlify deploy --prod
-   ```
+3. **Verify it works:**
+   - Visit your domain — you should see the login page
+   - Enter your password — portfolio should load
+   - Try accessing `/index.html` directly — should get 403 Forbidden
+   - Try viewing page source on login page — no portfolio content visible
 
-Or connect your GitHub repository to Netlify for automatic deployments.
+### How the Authentication Works
 
-### Deploy to Shared Hosting (FTP/SFTP)
+1. Apache serves `index.php` (via `DirectoryIndex` in `.htaccess`)
+2. PHP checks for a valid session
+3. If not authenticated: only the login form HTML is sent (portfolio content stays on server)
+4. If password is correct: PHP sets a server-side session and serves `index.html` via `readfile()`
+5. Direct access to `index.html` and `config.php` is blocked by `.htaccess`
 
-For traditional shared hosting (like Hetzner, HostGator, etc.):
+## Security
 
-1. **Build your site:**
-   ```bash
-   ./build.sh
-   ```
+### What's Protected
 
-2. **Connect via FTP/SFTP:**
-   - Use an FTP client like FileZilla
-   - Host: Your hosting provider's FTP address
-   - Port: 21 (FTP) or 22 (SFTP)
-   - Username/Password: From your hosting provider
+| File | Protection |
+|------|-----------|
+| `config.php` | Gitignored + blocked by .htaccess |
+| `personal-data.ts` | Gitignored |
+| `index.html` | Blocked by .htaccess (only served via PHP) |
+| Session cookie | HttpOnly, Secure, SameSite=Strict |
+| Login form | CSRF token protection |
+| Password hash | bcrypt with salt (server-side only) |
 
-3. **Upload the `dist/` folder contents:**
-   - Navigate to your public_html or web root directory
-   - Upload all files from the `dist/` folder (not the folder itself)
+### Security Headers (via .htaccess)
 
-4. **Enable HTTPS/SSL:**
-   - Log into your hosting control panel
-   - Enable Let's Encrypt SSL certificate (usually free and automatic)
-   - This is **required** for the password system to work (Web Crypto API needs HTTPS)
-
-5. **Test your site:**
-   - Visit `https://yourdomain.com` (note the "s" in https)
-   - Test password login and all features
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+- `Content-Security-Policy: default-src 'self'; ...`
 
 ## Browser Support
 
@@ -252,59 +239,10 @@ For traditional shared hosting (like Hetzner, HostGator, etc.):
 - Safari (latest)
 - Edge (latest)
 
-## Performance
-
-- **Lighthouse Score:** 100/100 (Performance, Accessibility, Best Practices, SEO)
-- **Static Generation:** All pages are pre-rendered at build time
-- **Optimized Assets:** Minified CSS and JavaScript
-- **Fast Loading:** < 1s Time to Interactive on 3G
-
-## Security Notes
-
-The password protection is **client-side only** and provides basic privacy. For sensitive information, consider:
-- Server-side authentication
-- Cloudflare Access
-- Basic HTTP authentication via hosting provider
-
-## Advanced: 1Password Secrets Management
-
-For multiple projects or team collaboration, consider using 1Password CLI for automated secret injection:
-
-```bash
-# Install 1Password CLI
-brew install 1password-cli
-
-# Store secrets in 1Password and use references
-# .env.template:
-PUBLIC_PASSWORD_HASH=op://portfolio/password/hash
-
-# Run with automatic secret injection
-op run --env-file=.env.template -- npm run dev
-```
-
-This eliminates plaintext secrets entirely. See [1Password Developer Docs](https://developer.1password.com/docs/cli/) for details.
-
-## Future Enhancements
-
-Potential improvements you might want to add:
-- [ ] Blog section for technical articles
-- [ ] Animations and transitions
-- [ ] Project filtering by technology
-- [ ] Contact form with email integration
-- [ ] Analytics integration (Google Analytics, Plausible)
-- [ ] RSS feed
-
 ## License
 
 This project is open source and available for personal use.
 
-## Questions or Issues?
-
-If you encounter any problems or have questions:
-1. Check the [Astro documentation](https://docs.astro.build)
-2. Review the configuration files
-3. Ensure all dependencies are installed correctly
-
 ---
 
-Built with ❤️ using Astro, TypeScript, and Tailwind CSS
+Built with Astro, TypeScript, Tailwind CSS, and PHP

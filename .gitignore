@@ -12,9 +12,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# environment variables
+# environment variables (no longer used, kept for safety)
 .env
 .env.production
+
+# Password hash config (NEVER commit this!)
+public/config.php
 
 # macOS-specific files
 .DS_Store

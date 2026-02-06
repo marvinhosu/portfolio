@@ -26,7 +26,7 @@
       // Inject new style to hide the opposite language
       const style = document.createElement('style');
       style.id = 'lang-style';
-      style.innerHTML = lang === 'en'
+      style.textContent = lang === 'en'
         ? '[data-lang="de"] { display: none !important; }'
         : '[data-lang="en"] { display: none !important; }';
       document.head.appendChild(style);

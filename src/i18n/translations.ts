@@ -1,15 +1,6 @@
 export type Language = 'en' | 'de';
 
 export interface Translations {
-  // Password Gate
-  passwordGate: {
-    welcome: string;
-    enterPassword: string;
-    passwordPlaceholder: string;
-    enterButton: string;
-    incorrectPassword: string;
-  };
-
   // Hero Section
   hero: {
     name: string;
@@ -221,14 +212,6 @@ export interface Translations {
 
 export const translations: Record<Language, Translations> = {
   en: {
-    passwordGate: {
-      welcome: 'Welcome',
-      enterPassword: 'Please enter the password to view this portfolio.',
-      passwordPlaceholder: 'Enter password',
-      enterButton: 'Enter',
-      incorrectPassword: 'Incorrect password. Please try again.',
-    },
-
     hero: {
       name: '', // Loaded from personal-data.ts
       title: 'IT Professional & Developer',
@@ -462,14 +445,6 @@ export const translations: Record<Language, Translations> = {
   },
 
   de: {
-    passwordGate: {
-      welcome: 'Willkommen',
-      enterPassword: 'Bitte geben Sie das Passwort ein, um dieses Portfolio anzuzeigen.',
-      passwordPlaceholder: 'Passwort eingeben',
-      enterButton: 'Bestätigen',
-      incorrectPassword: 'Falsches Passwort. Bitte versuchen Sie es erneut.',
-    },
-
     hero: {
       name: '', // Loaded from personal-data.ts
       title: 'Entwickler & IT-Enthusiast',
